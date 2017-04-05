@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+
+    <changeSet id="1" author="nikmlk">
+        <createTable tableName="movie">
+            <column name="id" type="varchar(255)" >
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="title" type="varchar(255)" defaultValue="null"/>
+            <column name="year" type="varchar(255)" defaultValue="null"/>
+            <column name="rated" type="varchar(255)" defaultValue="null"/>
+            <column name="released" type="varchar(255)" defaultValue="null"/>
+            <column name="runtime" type="varchar(255)" defaultValue="null"/>
+            <column name="genre" type="varchar(255)" defaultValue="null"/>
+            <column name="director" type="varchar(255)" defaultValue="null"/>
+            <column name="writer" type="varchar(255)" defaultValue="null"/>
+            <column name="actors" type="varchar(255)" defaultValue="null"/>
+            <column name="plot" type="varchar(255)" defaultValue="null"/>
+            <column name="language" type="varchar(255)" defaultValue="null"/>
+            <column name="country" type="varchar(255)" defaultValue="null"/>
+            <column name="awards" type="varchar(255)" defaultValue="null"/>
+            <column name="poster" type="varchar(255)" defaultValue="null"/>
+            <column name="metascore" type="varchar(255)" defaultValue="null"/>
+            <column name="imdbRating" type="varchar(255)" defaultValue="null"/>
+            <column name="imdbVotes" type="varchar(255)" defaultValue="null"/>
+            <column name="imdbID" type="varchar(255)" defaultValue="null"/>
+            <column name="type" type="varchar(255)" defaultValue="null"/>
+            <column name="dvd" type="varchar(255)" defaultValue="null"/>
+            <column name="boxOffice" type="varchar(255)" defaultValue="null"/>
+            <column name="production" type="varchar(255)" defaultValue="null"/>
+            <column name="website" type="varchar(255)" defaultValue="null"/>
+        </createTable>
+        <createTable tableName="rating">
+            <column name="id" type="varchar(255)">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="source" type="varchar(255)" defaultValue="null"/>
+            <column name="value" type="varchar(255)"/>
+            <column name="movie" type="varchar(255)">
+                <constraints foreignKeyName="movie" referencedTableName="movie" referencedColumnNames="id" deleteCascade="true"/>
+            </column>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
